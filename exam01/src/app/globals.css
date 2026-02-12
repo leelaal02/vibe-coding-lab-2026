@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --main-indigo: #4f46e5;
+  --success-emerald: #10b981;
+  --danger-rose: #f43f5e;
+}
+
+@theme inline {
+  --color-indigo-main: var(--main-indigo);
+  --color-emerald-success: var(--success-emerald);
+  --color-rose-danger: var(--danger-rose);
+}
+
+body {
+  color: var(--foreground);
+  background:
+    radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%),
+    #f8fafc;
+  min-height: 100vh;
+  font-family: inherit;
+  transition: background 0.5s ease;
+}
+
+/* Glassmorphism Utilities */
+@utility glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+@utility glass-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-card {
+  @apply glass rounded-[2rem] overflow-hidden transition-all duration-300;
+}
+
+.glass-input {
+  @apply glass border-white/60 focus:bg-white/60 focus:border-indigo-500/50 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all duration-300;
+}
+
+.premium-shadow {
+  box-shadow:
+    0 10px 15px -3px rgba(79, 70, 229, 0.1),
+    0 4px 6px -2px rgba(79, 70, 229, 0.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
